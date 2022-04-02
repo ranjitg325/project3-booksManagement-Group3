@@ -1,4 +1,3 @@
-//const validator = require('validator');
 const mongoose = require('mongoose')
 
 
@@ -28,7 +27,7 @@ const userSchema = new mongoose.Schema({
     password:{  
         type: String, 
         required: true,
-         match:[/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Min length shd be 8 and max length shd be 15']
+         match:[/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Min length should be 8 and max length should be 15']
         },
     address: {
         street : {type: String},
