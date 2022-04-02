@@ -122,7 +122,7 @@ const userLogin = async function(req,res){
          
          let token = jwt.sign({
               userId: user._id,
-              //email :username
+        
               
             },"project3",{expiresIn:"1800s"},
             
