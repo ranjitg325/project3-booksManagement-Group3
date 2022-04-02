@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bookModel = require("../models/bookModel.js")
-//const jwt = require("jsonwebtoken");
 const userModel = require('../models/userModel.js');
 const reviewModel = require('../models/reviewModel.js');
 
@@ -8,31 +7,16 @@ const isValidObjectId = function (objectId) {
     return mongoose.Types.ObjectId.isValid(objectId)
 }
 
-// const isValidRequestBody = function(reqBody){
-//     return Object.keys(reqBody).length >0
-// }
-
 
 
 const bookCreate = async function (req, res) {
     try {
         let data = req.body;
-        // let queryParams=req.query;
         const { title, ISBN, userId } = req.body
 
         if (Object.entries(data).length == 0) {
             return res.status(400).send({ status: false, msg: "Please provide some data" })
         }
-
-        // if(isValidRequestBody(queryParams)){
-        //     res.status(400).send({ status: false, message: "Invalid request parameters."})
-        //     return
-        //  }
-
-        //  if(!isValidRequestBody(data)){
-        //     res.status(400).send({ status: false, message: "please provide some data"})
-        //     return
-        //  }
 
         else {
             let title = req.body.title
@@ -215,10 +199,6 @@ const getBookbyId = async function (req, res) { //get books data by body params
 const deletebyid = async function (req, res) {
     try {
         let bookId = req.params.bookId
-        // if (!bookId) {
-        //     return res.status(400).send({ status: false, msg: "bookId is required" })
-        // }
-
 
         let userIdFromToken = req.userId
 
